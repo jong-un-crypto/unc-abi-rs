@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "near-abi",
+    "unc-abi",
     "metaschema"
 ]
 resolver = "2"

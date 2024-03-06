@@ -1,4 +1,4 @@
-use near_abi::AbiRoot;
+use unc_abi::AbiRoot;
 
 fn main() -> anyhow::Result<()> {
     let mut gen = schemars::gen::SchemaGenerator::default();

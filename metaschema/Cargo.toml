@@ -8,6 +8,6 @@ publish = false
 
 [dependencies]
 anyhow = "1"
-near-abi = { path = "../near-abi" }
+unc-abi = { path = "../unc-abi" }
 schemars = { version = "0.8.11", features = ["impl_json_schema"] }
 serde_json = "1"

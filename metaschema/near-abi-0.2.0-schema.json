@@ -104,7 +104,7 @@
           "type": "boolean"
         },
         "is_payable": {
-          "description": "Whether function is accepting $NEAR.",
+          "description": "Whether function is accepting $unc.",
           "type": "boolean"
         },
         "is_private": {

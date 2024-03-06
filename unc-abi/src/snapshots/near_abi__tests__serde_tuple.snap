@@ -1,14 +1,14 @@
 ---
-source: near-abi/src/lib.rs
+source: unc-abi/src/lib.rs
 expression: expected_json_str
 ---
 {
   "serialization_type": "borsh",
   "type_schema": {
-    "declaration": "Pair",
+    "declaration": "(u32, u32)",
     "definitions": {
-      "Pair": {
-        "Struct": [
+      "(u32, u32)": {
+        "Tuple": [
           "u32",
           "u32"
         ]

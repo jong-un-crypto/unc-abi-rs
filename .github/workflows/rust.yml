@@ -15,7 +15,7 @@ jobs:
 
       - name: Get MSRV
         run: |
-          RUST_MSRV="$(sed -n 's/rust-version *= *"\(.*\)"/\1/p' near-abi/Cargo.toml)"
+          RUST_MSRV="$(sed -n 's/rust-version *= *"\(.*\)"/\1/p' unc-abi/Cargo.toml)"
           echo "RUST_MSRV=$RUST_MSRV" >> $GITHUB_ENV
 
       - name: "Install ${{ env.RUST_MSRV }} toolchain (MSRV)"
@@ -73,7 +73,7 @@ jobs:
         run: cargo run --package metaschema-gen > tmp.json
 
       - name: Check that Current Meta-schema is Up-to-date
-        run: diff tmp.json metaschema/near-abi-current-schema.json
+        run: diff tmp.json metaschema/unc-abi-current-schema.json
 
       - name: Check that Meta-schema is Backward Compatible
         run: pip install semver && python .github/check_metaschema_compatibility.py

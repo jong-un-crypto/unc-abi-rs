@@ -3,11 +3,11 @@ import re
 import semver
 import subprocess
 
-metaschema_file_version_pattern = "^metaschema/near-abi-(\d+\.\d+\.\d+)-schema\.json$"
+metaschema_file_version_pattern = "^metaschema/unc-abi-(\d+\.\d+\.\d+)-schema\.json$"
 rust_schema_version_pattern = "^pub const SCHEMA_VERSION: &str = \"(\d+\.\d+\.\d+)\";$"
 
 persisted_semvers = []
-for metaschema in glob.glob("metaschema/near-abi-*.*.*-schema.json"):
+for metaschema in glob.glob("metaschema/unc-abi-*.*.*-schema.json"):
     persisted_semver = semver.VersionInfo.parse(
         re.match(metaschema_file_version_pattern, metaschema).group(1)
     )
@@ -17,7 +17,7 @@ last_persisted_semver = persisted_semvers[-1]
 print("Last persisted ABI schema version:", last_persisted_semver)
 
 current_semver = None
-with open("near-abi/src/lib.rs", "r") as sources:
+with open("unc-abi/src/lib.rs", "r") as sources:
     for line in sources.readlines():
         match = re.match(rust_schema_version_pattern, line)
         if match is not None:
@@ -38,7 +38,7 @@ if (current_semver.major > last_persisted_semver.major or
 else:
     result = subprocess.run(
         ["jsonschemacompat",
-         "metaschema/near-abi-" + str(last_persisted_semver) + "-schema.json",
-         "metaschema/near-abi-current-schema.json"]
+         "metaschema/unc-abi-" + str(last_persisted_semver) + "-schema.json",
+         "metaschema/unc-abi-current-schema.json"]
     )
     exit(result.returncode)

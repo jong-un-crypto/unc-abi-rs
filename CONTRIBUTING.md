@@ -1,6 +1,6 @@
-# Contributing to near-sdk-rs
+# Contributing to unc-sdk-rs
 
-Thank you for your interest in contributing to NEAR! We appreciate any type of contribution.
+Thank you for your interest in contributing to unc! We appreciate any type of contribution.
 
 If you have any questions about contributing, or about the project in general, please ask in our [rust-support Discord channel](https://discord.gg/cKRZCqD2b2).
 
@@ -18,7 +18,7 @@ Ensure the following are satisfied before opening a PR:
   - The exact command run by the CI is `cargo clippy --tests -- -Dclippy::all`
 - Run tests with `cargo test`
 - If you have changed the ABI models' structure:
-  - Re-generate metaschema by running `cargo run --package metaschema-gen > metaschema/near-abi-current-schema.json`
+  - Re-generate metaschema by running `cargo run --package metaschema-gen > metaschema/unc-abi-current-schema.json`
   - Make sure that the change is backwards compatible to the previous ABI schema format or bump the `SCHEMA_VERSION`
 - Ensure any new functionality is adequately tested
 - If any new public types or functions are added, ensure they have appropriate [rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) documentation

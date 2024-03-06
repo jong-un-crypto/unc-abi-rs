@@ -44,12 +44,12 @@ fn ensure_current_version<'de, D: Deserializer<'de>>(d: D) -> Result<String, D::
     if version.major != SCHEMA_SEMVER.major || version.minor != SCHEMA_SEMVER.minor {
         if version < SCHEMA_SEMVER {
             return Err(de::Error::custom(format!(
-                "expected `schema_version` to be ~{}.{}, but got {}: consider re-generating your ABI file with a newer version of SDK and cargo-near",
+                "expected `schema_version` to be ~{}.{}, but got {}: consider re-generating your ABI file with a newer version of SDK and cargo-unc",
                 SCHEMA_SEMVER.major, SCHEMA_SEMVER.minor, version
             )));
         } else {
             return Err(de::Error::custom(format!(
-                "expected `schema_version` to be ~{}.{}, but got {}: consider upgrading near-abi to a newer version",
+                "expected `schema_version` to be ~{}.{}, but got {}: consider upgrading unc-abi to a newer version",
                 SCHEMA_SEMVER.major, SCHEMA_SEMVER.minor, version
             )));
         }
@@ -766,7 +766,7 @@ mod tests {
         let err = serde_json::from_str::<AbiRoot>(json)
             .expect_err("Expected deserialization to fail due to schema version mismatch");
         assert!(err.to_string().contains(
-            "got 0.0.1: consider re-generating your ABI file with a newer version of SDK and cargo-near"
+            "got 0.0.1: consider re-generating your ABI file with a newer version of SDK and cargo-unc"
         ));
     }
 
@@ -786,6 +786,6 @@ mod tests {
             .expect_err("Expected deserialization to fail due to schema version mismatch");
         assert!(err
             .to_string()
-            .contains("got 99.99.99: consider upgrading near-abi to a newer version"));
+            .contains("got 99.99.99: consider upgrading unc-abi to a newer version"));
     }
 }
