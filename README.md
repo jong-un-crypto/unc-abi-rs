@@ -30,13 +30,13 @@
 
 ❗ **Warning: ABI is still in early stages of development so expect breaking changes to this library until we reach 1.0**
 
-This library is meant to serve as an unopinionated reference for Rust models of the [unc ABI](https://github.com/unc/abi).
+This library is meant to serve as an unopinionated reference for Rust models of the [Utility ABI](https://github.com/unc/abi).
 
 ## ABI Metaschema
 
 This repo also contains meta [JSON Schemas](https://json-schema.org/) of ABI. These schemas can be found in the [`metaschema`](/metaschema) folder: `unc-abi-${version}-schema.json` for a specific ABI schema version or `unc-abi-current-schema.json` for what is currently in the `main` branch of the repository.
 
-Metaschemas describe the properties of ABI schema format and allow anyone to validate whether a JSON file is a valid unc ABI. For example, one could use an online validator like https://www.jsonschemavalidator.net/ or a library such as [ajv](https://github.com/ajv-validator/ajv).
+Metaschemas describe the properties of ABI schema format and allow anyone to validate whether a JSON file is a valid unc ABI. For example, one could use an online validator like <https://www.jsonschemavalidator.net/> or a library such as [ajv](https://github.com/ajv-validator/ajv).
 
 ## Contributing
 
